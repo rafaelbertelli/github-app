@@ -1,8 +1,6 @@
 import React from 'react'
-import Search from './components/search'
-import UserInfo from './components/userInfo'
-import Actions from './components/actions'
-import Repos from './components/repos'
+import AppContent from './components/appContent';
+
 // https://api.github.com/users/rafaelbertelli
 
 class App extends React.Component {
@@ -21,11 +19,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='app'>
-        <Search />
-        <UserInfo />
-        <Actions />
-        <Repos className={'repos'} title={'Repositórios'} repos={this.state.repos} />
-        <Repos className={'starred'} title={'Favoritos'} repos={this.state.repos} />
+        <AppContent repos={this.state.repos} />
       </div>
     )
   }

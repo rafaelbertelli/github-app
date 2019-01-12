@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Repos = ({ className, title, repos }) => {
   return (
@@ -14,12 +15,12 @@ const Repos = ({ className, title, repos }) => {
 }
 
 Repos.defaultProps = {
-  className: ''
+  repos: []
 }
 
 Repos.propTypes = {
   className: React.PropTypes.string.isRequired,
-  repos: React.PropTypes.array
+  repos: PropTypes.arrayOf(PropTypes.object)
 }
 
 const styles = {
