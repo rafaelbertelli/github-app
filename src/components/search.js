@@ -1,32 +1,21 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-class Search extends Component {
+const Search = ({ handleSearch }) => {
+  return (
+    <div className='search'>
+      <input
+        style={styles.search}
+        type='search'
+        placeholder='Buscar por usuário'
+        onKeyUp={handleSearch}
+      />
+    </div>
+  )
+}
 
-  handleSearch = e => {
-    const ENTER = 13
-    if (e.keyCode === ENTER) {
-      const username = e.target.value
-
-      axios
-        .get(`https://api.github.com/users/${username}`)
-        .then(console.log)
-        .catch(console.log)
-    }
-  }
-
-  render() {
-    return (
-      <div className='search'>
-        <input
-          style={styles.search}
-          type='search'
-          placeholder='Buscar por usuário'
-          onKeyUp={this.handleSearch}
-        />
-      </div>
-    )
-  }
+Search.propTypes = {
+  handleSearch: PropTypes.func.isRequired
 }
 
 const styles = {

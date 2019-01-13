@@ -1,12 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const UserInfo = ({ userInfo: { name, html_url, avatar_url, public_repos, followers, following } }) => {
+const UserInfo = props => {
+  const { name, html_url, avatar_url, public_repos, followers, following } = props.userInfo
+
   return (
     <div className='user-info' style={styles.userInfo}>
       <img style={styles.image} src={avatar_url} alt={`${name} photography`} title={name} />
       <div style={styles.userDetails}>
         <h1 style={styles.title}>
-          <a href={html_url}>{name}</a>
+          <a target='_blank' href={html_url}>{name}</a>
         </h1>
         <ul style={styles.list} className='repos-info'>
           <li style={styles.listItem}>Repositórios: {public_repos}</li>
@@ -16,6 +19,10 @@ const UserInfo = ({ userInfo: { name, html_url, avatar_url, public_repos, follow
       </div>
     </div>
   )
+}
+
+UserInfo.propTypes = {
+  userInfo: PropTypes.object
 }
 
 const styles = {
