@@ -1,18 +1,17 @@
 import React from 'react'
 
-const UserInfo = () => {
+const UserInfo = ({ userInfo: { name, html_url, avatar_url, public_repos, followers, following } }) => {
   return (
     <div className='user-info' style={styles.userInfo}>
-      <img style={styles.image} src={'https://avatars2.githubusercontent.com/u/10123227?v=4'} alt='github user' title='Github user' />
-
+      <img style={styles.image} src={avatar_url} alt={`${name} photography`} title={name} />
       <div style={styles.userDetails}>
         <h1 style={styles.title}>
-          <a href='https://api.github.com/users/rafaelbertelli'>Rafael</a>
+          <a href={html_url}>{name}</a>
         </h1>
         <ul style={styles.list} className='repos-info'>
-          <li style={styles.listItem}>Repositórios: 70</li>
-          <li style={styles.listItem}>Seguidores: 2</li>
-          <li style={styles.listItem}>Seguindo: 2</li>
+          <li style={styles.listItem}>Repositórios: {public_repos}</li>
+          <li style={styles.listItem}>Seguidores: {followers}</li>
+          <li style={styles.listItem}>Seguindo: {following}</li>
         </ul>
       </div>
     </div>

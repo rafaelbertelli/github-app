@@ -6,20 +6,20 @@ import UserInfo from './userInfo'
 import Actions from './actions'
 import Repos from './repos'
 
-const AppContent = props => {
+const AppContent = ({ repos, userInfo }) => {
   return (
     <div>
       <Search />
-      <UserInfo />
+      <UserInfo userInfo={userInfo} />
       <Actions />
-      <Repos className={'repos'} title={'Repositórios'} repos={props.repos} />
-      <Repos className={'starred'} title={'Favoritos'} repos={props.repos} />
+      <Repos className='repos' title='Repositórios' repos={repos} />
     </div>
   )
 }
 
 AppContent.prototype = {
-  repos: PropTypes.arrayOf(PropTypes.object)
+  repos: PropTypes.arrayOf(PropTypes.object),
+  userinfo: PropTypes.objectOf(PropTypes.string)
 }
 
 export default AppContent

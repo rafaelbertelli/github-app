@@ -6,8 +6,12 @@ const Repos = ({ className, title, repos }) => {
     <div className={className}>
       <h2>{title}</h2>
       <ul style={styles.list}>
-        {repos.map((repo, key) => 
-          <li key={key} style={styles.listItem}><a href={repo.href}>{repo.name}</a><hr /></li>
+        {repos.map((repo, key) =>
+          <li key={key} style={styles.listItem}>
+            <a href={repo.href}>
+              {repo.name}
+            </a><hr />
+          </li>
         )}
       </ul>
     </div>

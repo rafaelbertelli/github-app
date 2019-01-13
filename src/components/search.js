@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
+import axios from 'axios'
 
-const Search = () => {
-  return (
-    <div className='search'>
-      <input style={styles.search} type='search' placeholder='Buscar por usuário' />
-    </div>
-  )
+class Search extends Component {
+
+  handleSearch = e => {
+    const ENTER = 13
+    if (e.keyCode === ENTER) {
+      const username = e.target.value
+
+      axios
+        .get(`https://api.github.com/users/${username}`)
+        .then(console.log)
+        .catch(console.log)
+    }
+  }
+
+  render() {
+    return (
+      <div className='search'>
+        <input
+          style={styles.search}
+          type='search'
+          placeholder='Buscar por usuário'
+          onKeyUp={this.handleSearch}
+        />
+      </div>
+    )
+  }
 }
 
 const styles = {
