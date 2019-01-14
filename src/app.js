@@ -73,11 +73,8 @@ class App extends React.Component {
     return (
       <div className='app'>
         <AppContent
-          props={this.state}
-          repos={this.state.repos}
-          userInfo={this.state.userInfo}
+          { ...this.state }
           handleSearch={this.handleSearch}
-          starreds={this.state.starreds}
         />
       </div>
     )
