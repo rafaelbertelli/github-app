@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Search from './search'
 import UserInfo from './userInfo'
-import Actions from './actions'
 import Repos from './repos'
 
 const AppContent = props => {

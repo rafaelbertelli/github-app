@@ -13,7 +13,7 @@ class App extends React.Component {
       showRepos: false,
       showStarreds: false,
       userInfo: {
-        name: 'Rafael',
+        name: "Rafael",
         html_url: 'https://api.github.com/users/rafaelbertelli',
         avatar_url: 'https://avatars2.githubusercontent.com/u/10123227?v=4',
         public_repos: 70,
@@ -21,7 +21,7 @@ class App extends React.Component {
         following: 2
       },
       repos: [{ href: '#', name: 'Nome do repo' }],
-      starreds: [],
+      starreds: []
     }
   }
 
@@ -39,6 +39,7 @@ class App extends React.Component {
             .get(res.data.repos_url)
             .then(repos => {
               this.setState({
+                
                 repos: repos.data
               })
             })
@@ -65,7 +66,11 @@ class App extends React.Component {
           })
         })
         .catch(console.log)
-        .finally(() => e.target.disabled = false)
+        .finally(() => {
+
+          
+          e.target.disabled = false
+        })
     }
   }
 
@@ -73,7 +78,7 @@ class App extends React.Component {
     return (
       <div className='app'>
         <AppContent
-          { ...this.state }
+          {...this.state}
           handleSearch={this.handleSearch}
         />
       </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const Repos = ({ title, list }) => {
   return (
-    <div className="repos">
+    <div className='repos'>
       <h2>{title}</h2>
       <ul style={styles.list}>
         {list.map((repo, key) =>
